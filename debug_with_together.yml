@@ -1,0 +1,10 @@
+---
+- name: working with_together
+  hosts: localhost
+  tasks:
+    - name: execution of with_together
+      debug:
+        msg: "{{ item.0 }} and {{ item.1 }}"
+      with_together:
+        - ['a','ab','c','c']
+        - [1,2,3,4]

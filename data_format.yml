@@ -1,0 +1,9 @@
+---
+- name: data Format
+  hosts: localhost
+  vars:
+     sample_text: "this is simple test string "
+  tasks:
+     - name: data
+       debug:
+         msg: "{{ sample_text | to_jason }}"     

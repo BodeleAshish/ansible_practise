@@ -1,0 +1,11 @@
+---
+- name: cat command example
+  hosts: localhost
+  tasks:
+    - name: use cat cammand to display content of file
+      shell: cat /home/ubuntu/sample.yml
+      register: displaycontent
+
+    - debug: 
+        msg: "{{ displaycontent.stdout_lines[0]}},{{ displaycontent.stdout_lines[1] }}"
+

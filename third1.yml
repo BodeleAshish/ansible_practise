@@ -1,0 +1,15 @@
+---
+- name: simple book
+  hosts: localhost
+  become: true
+
+  tasks:
+    - name: install httpd
+      yum:
+        name: httpd new
+        state: latest
+    - name: starting httpd
+      service:
+        name: starting httpd
+        state: started
+

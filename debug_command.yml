@@ -1,0 +1,10 @@
+---
+- name: check uptime of server
+  hosts: localhost
+  tasks:
+    - name: execute uptime command
+      command: "df -h"
+      register: diskusg
+
+    - debug: 
+        msg="{{ diskusg.stdout_lines }}"

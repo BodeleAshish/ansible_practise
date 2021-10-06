@@ -1,0 +1,21 @@
+---
+- name: shell module example
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: displaying date
+      shell:
+         "date"
+      register: datecmd
+      tags: datecmd
+    - debug:
+        msg: "{{ datecmd.stdout }}"
+
+    - name: display ps
+      shell: ps -ef | grep root
+      register: ps_info
+      no_log: true
+
+    - debug:
+        var: ps_info.stdout_lines 

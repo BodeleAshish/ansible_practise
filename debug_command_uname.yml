@@ -1,0 +1,10 @@
+---
+- name: check uptime of server
+  hosts: localhost
+  tasks:
+    - name: execute uptime command
+      command: "uname -a"
+      register: unamemsg
+
+    - debug: 
+        msg="{{ unamemsg.stdout }}"

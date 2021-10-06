@@ -1,0 +1,12 @@
+---
+- name: create user files with loop
+  hosts: localhost
+  tasks:
+  - name: creating user files
+    file:
+      path: /home/ubuntu/ashish/ansible-{{ item }} 
+      state: touch
+    loop:
+     - first
+     - second
+     - third

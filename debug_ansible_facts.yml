@@ -1,0 +1,13 @@
+---
+- name: debug ansible facts
+  hosts: localhost
+  gather_facts: no
+  tasks:
+
+  - name: debug __facts
+    debug:
+      var: ansible_facts 
+
+  - name: hostname
+    debug:
+      var: ansible_hostname 

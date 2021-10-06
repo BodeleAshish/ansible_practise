@@ -1,0 +1,14 @@
+---
+- name: finds log files
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Searching log files
+      find:
+        paths: /var/log
+        patterns: "*.log"
+        age: -2d
+      register: file_list
+
+    - debug:
+        var: file_list.files[0].gid 

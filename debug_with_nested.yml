@@ -1,0 +1,10 @@
+---
+- name: working of with_nested
+  hosts: localhost
+  tasks:
+    - name: execution of with_nested loop
+      debug:
+        var: item[0], item[1]
+      with_nested:
+        - ['alice','bob']
+        - ['client','emp','hr']

@@ -1,0 +1,57 @@
+---
+- name: string in upper case
+  hosts: localhost
+  gather_facts: yes 
+ 
+  vars:
+    date: "%d-%m-%y %H:%M:%S" 
+    list_fruits: ['mango','apple','banana']
+    
+
+  tasks:
+   - name: string to upper case
+     debug:
+       msg: "{{ ansible_hostname|upper }}" 
+
+   - name: string to lower case
+     debug:
+       msg: "{{ ansible_hostname|lower}}"
+
+   - name: date format
+     shell: "date"
+     register: date_today 
+     no_log: true
+
+   - name: print date in msg directive
+     debug:
+       msg: "{{ date_today['start'] }}"
+
+   - name: print msg with var directive
+     debug:
+       var: date_today.start
+
+   - name: print date in string format eith var 
+     debug:
+       var: "{{ '%y-%m-%d'|strftime }}"
+
+ 
+   - name: print date in string format eith msg 
+     debug:
+       msg: "{{ '%y-%m-%d'|strftime }}"
+
+
+   - name: print time in string format eith msg 
+     debug:
+       msg: "{{ date|strftime }}"
+
+
+   - name: concatr list into string
+     debug:
+       var: "{{ list_fruits|join(',') }}"
+     register: str_fr
+
+   - name: concatr list into string
+     debug:
+       msg: "{{ list_fruits|join(',') }}"
+
+

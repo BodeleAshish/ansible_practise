@@ -1,0 +1,10 @@
+---
+- name: delete directory
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Deleting directory
+      file:
+        path: /home/priv_dir
+        state: absent
+        mode: '0777'

@@ -1,0 +1,12 @@
+---
+- name: fetch apache tomcat server file
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: fetching tomcat server file
+      fetch:
+        src: /home/ubuntu/ashish/tomcat/apache-tomcat-8.5.71.tar.gz
+        dest: /home/ubuntu/ashish/html/
+        flat: yes
+        fail_on_missing: yes
+

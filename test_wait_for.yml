@@ -1,0 +1,10 @@
+---
+- name: wait_for module
+  hosts: localhost
+  gather_facts: yes
+  tasks:
+    - name: executing wait_for module to wait for 30 second
+      wait_for:
+        delay: 0
+        timeout: 30
+      tags: sleep30

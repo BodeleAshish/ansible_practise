@@ -1,0 +1,7 @@
+---
+- name: no_log
+  hosts: localhost
+  tasks:
+  - name: print sessitve information
+    command: "echo {{sensitive}}"
+    no_log: true

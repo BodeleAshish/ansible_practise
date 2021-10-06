@@ -1,0 +1,11 @@
+---
+- name: create new file
+  hosts: localhost
+  vars:
+    - user: ubuntu
+  tasks:
+    - name: creating new user file
+      file:
+        path: /home/{{ user }}/ashish/file1
+        state: touch
+

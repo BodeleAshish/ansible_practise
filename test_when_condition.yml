@@ -1,0 +1,19 @@
+---
+- name: when condition example
+  hosts: localhost
+  tasks:
+   - name: check if file is already exit
+     command: ls /home/ubuntu/ashish/file-5
+     register: file_exists
+     ignore_errors: yes
+
+   - name: create file
+     file:
+       path: /home/ubuntu/ashish/file-5
+       state: touch
+     when: file_exists is failed
+    
+   - name: show message if file exists
+     debug:
+       var: file_exists 
+     when: file_exists is succeeded 

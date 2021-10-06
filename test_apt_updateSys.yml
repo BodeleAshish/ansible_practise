@@ -1,0 +1,8 @@
+---
+- name: update th system
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: updating system
+      apt:
+        update_cache: yes

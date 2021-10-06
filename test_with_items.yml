@@ -1,0 +1,13 @@
+---
+- name: create files with with_loop
+  hosts: localhost
+
+  tasks: 
+   - name: create files
+     file:
+       path: /home/ubuntu/ashish/file-{{ item }}
+       state: touch
+     with_items:
+       - 1
+       - 2
+       - 3 

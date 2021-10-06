@@ -1,0 +1,9 @@
+---
+- name: Create new directory
+  become: yes
+  hosts: localhost
+  tasks:
+    - name: creating new directory
+      file:
+        path: /home/ubuntu/ashish/backup_dir
+        state: directory

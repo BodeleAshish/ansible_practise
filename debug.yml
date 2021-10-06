@@ -1,0 +1,7 @@
+---
+- name: checking for ansible script
+  hosts: localhost
+  tasks:
+    - name: print message
+      debug: 
+        msg: Hello Ansible World

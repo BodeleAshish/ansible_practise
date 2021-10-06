@@ -1,0 +1,18 @@
+---
+- name: Download apache tomcat server
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: create directory tomcate
+      file:
+          path: /home/ubuntu/ashish/tomcat
+          state: directory
+          mode: '0777'
+    
+    - name: download tomcat
+      get_url:
+        url: https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.71/bin/apache-tomcat-8.5.71.tar.gz
+        dest: /home/ubuntu/ashish/tomcat
+        mode: '0777'
+        checksum: sha512:292a3f856b0a8c1d11fd1ba252cabd94794201cda4f951dd0522764449bed90f2f43a4a667cd6d28ce13c3b2096736978d9df91709c168ba7133c51544446433
+

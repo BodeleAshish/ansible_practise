@@ -1,0 +1,11 @@
+---
+- name: change file priviledge
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: changing priviledge to all users
+      file:
+        path: /home/priv_dir
+        state: directory
+        mode: '0777'
+
